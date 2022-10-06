@@ -1,64 +1,56 @@
 // Assignment code here
-//create variables that hold specialCharacters, lowerCaseLetters, upperCaseLetters, numericCharacters
-
-var specialCharacters = "!@%#&"*+=^";
-var alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-var numericCharacters = "0123456789";
-
-var passwordTxt = document.getElementById("password");
-var length = document.getElementById("length");
-var incnumericCharacters  = document.getElementById("numbers");
-var incspecialCharacters= document.getElementById("symbols");
 var generateBtn = document.getElementById("generate");
 
-if(length < 8) {
- then alert 
+function generatePassword() {
+
+var specialCharacters = "!@%#&*+=^";
+var lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
+var uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numericCharacters = "0123456789";
+var passwordLength = 8
+
+var hasSpecChars = confirm("Do you want to include specialCharacters?")
+var hasLwercaseLetters = confirm("Do you want to include lowerCaseNumbers?")
+var hasUppercaseLetters = confirm("Do you want to include upperCaseLetters?")
+var hasNumericCharacters = confirm("Do you want to include numericCharacters?")
+
+if (passwordLength < 8 || passwordLength > 128) {
+  Window.alert("password length must be at least 8 and no greater than 128 characters")
+  return
 }
 
-if(length >128) {
-  then alert that is too long
+if(isNotANumericCharacter(passwordLength)) {
+  window.alert("That's not a number")
+  return
 }
 
-
-var hasSpecChars = confirm
-var hasLwerCaseletters = confirm
-var hasupperCaseLetters = confirm
-var hasNumericCharacters = confirm
-
-//variable to store user input
-var passwordUserResult = {
-  length : length,
-  hasSpecChar: hasSpecChars,
-
+if (isNotANumericCahracter(passwordLength)) {
+window.alert("That's not a number")
+} else if (passwordLength < 8|| passwordLength > 128) {
+  window.alert("invalid passord length")
+} else {
+  return
 }
 
-
-
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input.
-function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  var optionsCart = []
 
-  const generatePassword = (length, characters) => {
-    let password = "";
-    for (let i = 0; i < length; i++) {
-      password += characters.charAt(
-        Math.floor(Math.random() * characters.length)
-      );
-    }
-    return password;
-  };
+for (var i=0; i< lowerCaseLetters.length; i++) 
+    uppercaseLetters[i] = lowercaseLetters[i].touppercaseLetters() 
+    Math.floor(Math.random() * characters.length);
+  }
+
+  
+//write password to the #password input
+function writePassword() {
+  var password=generatePassword();
+  var passwordTxt = document.getElementById("password");
+
+  passwordTxt.value = password;
 
 }
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-  incNumbers.checked ? (characters += numbers) : "";
-  incSymbols.checked ? (characters += symbols) : "";
-  passwordTxt.value = generatePassword(length.value, characters);
-});
